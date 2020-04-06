@@ -1,0 +1,8 @@
+{
+  "mongoURI": "mongodb+srv://Admin:admin@myfirstcluster-0o9yh.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken",
+  "gitHubClientID":"893ff73e833fb75583ef",
+  "gitHubSecret":"e1c2f50de39c6564d41ad9ca7b0ac9da0b8b8ff8",
+  "OAUTH-TOKEN": "6a9dd5c6e51c9f24f619eeee0c62ba149ab8fd8c"
+   
+}

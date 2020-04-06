@@ -22,6 +22,9 @@
 
 - npm install -D nodemon concurrently (server display is live and both backend and frontend server run concurrently)
 
+- When transfering the project between myself and Keith i was unable to run React-Scripts and needed to use the command:
+    - npm install react-scripts --save
+
 
 *** Github ***
 Take github user name
@@ -47,6 +50,7 @@ Run: npm run dev
 Link to concurrently information: https://www.npmjs.com/package/concurrently
 
 *** Client side dependencies ***
+************ cd into client ********************
 axios- to make http requests accross domains 
 react-router-dom-
 redux-state management
@@ -58,6 +62,9 @@ react moment- to use moment within react
 
 To install these dependencies run:
 npm i axios react-router-dom redux react-redux redux-thunk redux-devtools-extension moment react-moment
+
+(generate random number)
+npm i uuid 
 
 *** Proxy ***
 Set up a proxy in client side package.json.
