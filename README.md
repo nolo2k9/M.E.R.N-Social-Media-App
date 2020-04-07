@@ -71,3 +71,11 @@ Set up a proxy in client side package.json.
 So when using things like axios you dont always have to enter in the address
 
 "proxy": "http://localhost:5000"
+
+
+*** An Issue Occured on the 06/04/2020 ***
+
+When trying to make a push to github, it was being rejected.
+To solve this I (Cuan O'Conchuir) made a --force.
+This appears to have caused our previous commits to be lost.
+This is note serves as a record/timestamp for the issue, and a statement of responsibility for this.

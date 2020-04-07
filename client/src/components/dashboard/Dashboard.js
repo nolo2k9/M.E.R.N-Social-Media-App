@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
+import DashboardActions from './DashboardActions';
 import { getCurrentProfile } from '../../actions/profile';
 
 // https://reactjs.org/docs/hooks-effect.html // place in readme later****
@@ -21,7 +22,9 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
         <i className="fas fa-user" />Welcome { user && user.name }
         </p>
         {profile !== null ? (
-        <Fragment>has</Fragment>
+        <Fragment>
+            <DashboardActions></DashboardActions>
+        </Fragment>
         ) : (
         <Fragment>
             <p>You have not yet set up a profile, please add some info</p>
