@@ -76,6 +76,8 @@ So when using things like axios you dont always have to enter in the address
 *** An Issue Occured on the 06/04/2020 ***
 
 When trying to make a push to github, it was being rejected.
-To solve this I (Cuan O'Conchuir) made a --force.
+To solve this I (Cuan O'Conchuir) made a --force push.
 This appears to have caused our previous commits to be lost.
-This is note serves as a record/timestamp for the issue, and a statement of responsibility for this.
+I emailed Martin Kenirons (our tutor) about this issue on 06/04/2020 and no advice on how to proceed was given, 
+so I will continue to operater under the assumption any loss of github commits will not affect our final grade.
+(This note serves as a record/timestamp for the issue, and a statement of responsibility for this.)
