@@ -9,6 +9,7 @@ const { check, validationResult } = require('express-validator');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
+const Post = require('../../models/Post');
 
 // GET api/profile/the target profile - Gets current users profile
 router.get('/me', auth, async (req, res) => {
@@ -148,7 +149,8 @@ router.get('/user/:user_id', async (req, res) => {
 
 router.delete('/', auth, async (req, res) => {
     try {
-
+        //Remove user posts
+        await Post.deleteMany({ user: req.user.id });
         //Remove a profile by using the mongo command findOneAndRemove
         await Profile.findOneAndRemove({ user: req.user.id });
         //Remove the user 
@@ -172,12 +174,9 @@ router.put('/experience', [
 
     auth,
     [
-
         check('title', 'Title is required').not().isEmpty(),
         check('company', 'Company is required').not().isEmpty(),
         check('from', 'From date required').not().isEmpty()
-
-
     ]
 ], async (req, res) => {
 
@@ -227,7 +226,6 @@ router.put('/experience', [
 
     }
 
-
 }
 );
 
@@ -259,7 +257,6 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
 
 })
 
-
 //Put request to api/profile/experience
 // Add profile education 
 
@@ -267,13 +264,10 @@ router.put('/education', [
 
     auth,
     [
-
         check('school', 'The School you attended is required').not().isEmpty(),
         check('degree', 'Degree is required').not().isEmpty(),
         check('fieldofstudy', 'Field of study is required').not().isEmpty(),
         check('from', 'From date required').not().isEmpty()
-
-
     ]
 ], async (req, res) => {
 
@@ -322,7 +316,6 @@ router.put('/education', [
         res.status(500).send('Server Error');
 
     }
-
 
 }
 );
