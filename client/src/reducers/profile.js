@@ -1,4 +1,4 @@
-import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, UPDATE_PROFILE } from "../actions/types";
+import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, UPDATE_PROFILE, GET_PROFILES, GET_REPOS } from "../actions/types";
 
 // Actions to get profile, create it, update, clear from state, etc
 
@@ -21,6 +21,13 @@ export default function(state = initialState, action){
                 profile: payload,
                 loading: false
             };
+            // fill empty profile arrary with profiles from the server
+        case GET_PROFILES:
+            return {
+                ...state,
+                profiles: payload,
+                loading: false
+            }
         case PROFILE_ERROR:
             return{
                 ...state,
@@ -34,6 +41,12 @@ export default function(state = initialState, action){
                 repos: [],
                 loading: false
             };
+        case GET_REPOS:
+            return {
+                ...state,
+                repos: payload,
+                loading: false
+            }
         default:
             return state;
     }
