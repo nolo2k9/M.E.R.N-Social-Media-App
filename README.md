@@ -81,3 +81,7 @@ This appears to have caused our previous commits to be lost.
 I emailed Martin Kenirons (our tutor) about this issue on 06/04/2020 and no advice on how to proceed was given, 
 so I will continue to operater under the assumption any loss of github commits will not affect our final grade.
 (This note serves as a record/timestamp for the issue, and a statement of responsibility for this.)
+
+***Known Issues***
+(fix this) - There seems to be some problems with the DB identifying profiles and profile ownership, most likely originating in "auth".
+(fix this) - Edit profile button does not appear on profile view when it should. Most likely due to a syntax typo, but unsure.
