@@ -85,3 +85,4 @@ so I will continue to operater under the assumption any loss of github commits w
 ***Known Issues***
 (fix this) - There seems to be some problems with the DB identifying profiles and profile ownership, most likely originating in "auth".
 (fix this) - Edit profile button does not appear on profile view when it should. Most likely due to a syntax typo, but unsure.
+(fix this) - Github repos not being found when a https:// link being used, AND when only username specified when adding them to the profile.
