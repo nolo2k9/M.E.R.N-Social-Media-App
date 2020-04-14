@@ -1,7 +1,7 @@
 
 import {
     GET_POST,
-    POST_ERROR,UPDATE_LIKES
+    POST_ERROR,UPDATE_LIKES, DELETE_POST
 } from '../actions/types';
 //object containing state
 const initialState = {
@@ -23,7 +23,13 @@ export default function(state=initialState,action){
                 posts: payload,
                 loading: false
             };
-
+        case DELETE_POST:
+            return {
+                ...state,
+                //return all of the post exept the one with that id as it has been deleted
+                posts: state.posts.filter(post => post._id !==payload),
+                loading: false
+            }
         case POST_ERROR:
             //returning the state and the  of error in the payload
             return{
