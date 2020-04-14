@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {setAlert} from './alert';
-import {GET_POST, POST_ERROR  } from './types';
+import {GET_POST, POST_ERROR, UPDATE_LIKES  } from './types';
 import reducers from '../reducers';
 
 //GET POSTS FUNCTION
@@ -10,7 +10,7 @@ export const getPosts = () => async dispatch => {
         const res = await axios.get('/api/posts');
         dispatch({
             type: GET_POST,
-            payload: reducers.data
+            payload: res.data
         });
     } catch (err) {
         dispatch({
@@ -19,3 +19,38 @@ export const getPosts = () => async dispatch => {
         });
     }
 };
+// Add like to a post 
+export const addLike = id => async dispatch => {
+    //try catch to make request 
+    try {
+        const res = await axios.put(`/api/posts/like/${id}`);
+        dispatch({
+            type: UPDATE_LIKES,
+            //sedning object with post id and array of likes in the payload
+            payload: {id,likes: res.data}
+        });
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        });
+    }
+};
+//remove a like  
+export const removeLike = id => async dispatch => {
+    //try catch to make request 
+    try {
+        const res = await axios.put(`/api/posts/unlike/${id}`);
+        dispatch({
+            type: UPDATE_LIKES,
+            //sedning object with post id and array of likes in the payload
+            payload: {id,likes: res.data}
+        });
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        });
+    }
+};
+
