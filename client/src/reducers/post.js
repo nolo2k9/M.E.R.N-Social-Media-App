@@ -1,7 +1,7 @@
 
 import {
     GET_POST,
-    POST_ERROR,UPDATE_LIKES, DELETE_POST,ADD_POST,SINGLE_POST
+    POST_ERROR,UPDATE_LIKES, DELETE_POST,ADD_POST,SINGLE_POST, SINGLE_POST_COMMENT, SINGLE_POST_DELETE
 } from '../actions/types';
 //object containing state
 const initialState = {
@@ -65,6 +65,27 @@ export default function(state=initialState,action){
                 post: payload,
                 loading: false
             }
+        case SINGLE_POST_COMMENT: 
+            //return state, edit a single post with the post id
+            //get the post from the state and manipulate the comments, replace it with the payload i.e the entered text for the comments 
+            return {
+                ...state,
+                post: {...state.post, comments: payload},
+                loading: false
+            }
+            case SINGLE_POST_DELETE: 
+            /*
+            return state, delete a single post with the post id
+            filter through the comments, get whats currently in the post 
+            filter through the comments array in the state. For each comment filter out the comment with that spcific id contained within the payload 
+            */
+            return {
+                ...state,
+                post: {...state.post, comment:state.post.comments.filter(comment => comment._id === payload ),
+            },
+               loading: false
+            }
+
             default:
                 return state;
     }

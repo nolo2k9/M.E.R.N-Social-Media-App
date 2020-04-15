@@ -24,3 +24,6 @@ export const UPDATE_LIKES = 'UPDATE_LIKES';
 export const DELETE_POST = 'DELETE_POST';
 export const ADD_POST = 'ADD_POST';
 export const SINGLE_POST = 'SINGLE_POST';
+export const SINGLE_POST_COMMENT = 'SINGLE_POST_COMMENT';
+export const SINGLE_POST_DELETE = 'SINGLE_POST_DELETE';
+
