@@ -1,7 +1,7 @@
 
 import {
     GET_POST,
-    POST_ERROR,UPDATE_LIKES, DELETE_POST,ADD_POST
+    POST_ERROR,UPDATE_LIKES, DELETE_POST,ADD_POST,SINGLE_POST
 } from '../actions/types';
 //object containing state
 const initialState = {
@@ -58,6 +58,12 @@ export default function(state=initialState,action){
                 posts: state.posts.map(post => post._id === payload.id ? {...post, likes: payload.likes} : post),
                 //Set loading to false 
                 loading: false 
+            }
+        case SINGLE_POST:
+            return {
+                ...state,
+                post: payload,
+                loading: false
             }
             default:
                 return state;

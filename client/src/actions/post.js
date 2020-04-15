@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {setAlert} from './alert';
-import {GET_POST, POST_ERROR, UPDATE_LIKES, DELETE_POST, ADD_POST } from './types';
+import {GET_POST, POST_ERROR, UPDATE_LIKES, DELETE_POST, ADD_POST, SINGLE_POST } from './types';
 import reducers from '../reducers';
 
 //GET POSTS FUNCTION
@@ -99,4 +99,21 @@ export const addPost = formData => async dispatch => {
 };
 
 
-
+//GET SINGLE POST  FUNCTION
+export const getPost = id => async dispatch => {
+    //try catch to make request 
+    try {
+        //Making a get request to api/posts/id
+        const res = await axios.get(`/api/posts/${id}`);
+        dispatch({
+            //sending data in payload 
+            type: SINGLE_POST,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        });
+    }
+};
