@@ -1,7 +1,7 @@
 
 import {
     GET_POST,
-    POST_ERROR,UPDATE_LIKES, DELETE_POST
+    POST_ERROR,UPDATE_LIKES, DELETE_POST,ADD_POST
 } from '../actions/types';
 //object containing state
 const initialState = {
@@ -21,6 +21,15 @@ export default function(state=initialState,action){
             return{
                 ...state,
                 posts: payload,
+                loading: false
+            };
+        case ADD_POST:
+            return {
+                ...state,
+                //current array with state.posts and add new post in payload 
+                //will return post down to any component that uses post component in their state
+                //putting payload first will put the comment at the top
+                posts: [payload,...state.posts],
                 loading: false
             };
         case DELETE_POST:
