@@ -7,7 +7,7 @@ const ProfileSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,   // Is a form of relation to a users specific profile
         ref: 'user'
     },
-    company: {
+    college: {
         type: String
     },
     website: {

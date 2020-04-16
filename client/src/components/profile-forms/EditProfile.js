@@ -6,7 +6,7 @@ import { createProfile, getCurrentProfile } from '../../actions/profile';
 
 const EditProfile = ({profile: {profile, loading}, createProfile, getCurrentProfile, history}) => {
     const [formData, setFormData] = useState({
-        company: '',
+        college: '',
         website: '',
         location: '',
         status: '',
@@ -28,7 +28,7 @@ const EditProfile = ({profile: {profile, loading}, createProfile, getCurrentProf
 
         // check loading or no profile objects, then fill
         setFormData({
-            company: loading || !profile.company ? '' : profile.company,
+            college: loading || !profile.college ? '' : profile.college,
             website: loading || !profile.website ? '' : profile.website,
             location: loading || !profile.location ? '' : profile.location,
             status: loading || !profile.status ? '' : profile.status,
@@ -45,7 +45,7 @@ const EditProfile = ({profile: {profile, loading}, createProfile, getCurrentProf
     }, [loading, getCurrentProfile]);
 
     const{
-        company,
+        college,
         website,
         location,
         status,
@@ -79,25 +79,25 @@ const EditProfile = ({profile: {profile, loading}, createProfile, getCurrentProf
             <form className="form" onSubmit={e => onSubmit(e)}>
                 <div className="form-group">
                     <select name="status" value={status} onChange={e => onChange(e)}>
-                        <option value="0">* Select Professional Status</option>
-                        <option value="Developer">Developer</option>
-                        <option value="Junior Developer">Junior Developer</option>
-                        <option value="Senior Developer">Senior Developer</option>
-                        <option value="Manager">Manager</option>
-                        <option value="Student or Learning">Student or Learning</option>
-                        <option value="Instructor">Instructor</option>
-                        <option value="Intern">Intern</option>
+                        <option value="0">* Select Academic Status</option>
+                        <option value="Undergraduate">Undergraduate</option>
+                        <option value="Graduate">Graduate</option>
+                        <option value="Masters">Masters</option>
+                        <option value="PhD">PhD</option>
+                        <option value="Lecturer">Lecturer</option>
+                        <option value="Tutor">Tutor</option>
+                        <option value="Department Head">Department Head</option>
                         <option value="Other">Other</option>
                     </select>
-                    <small className="form-text">Give us an idea of where you are at in your career</small>
+                    <small className="form-text">Give us an idea of where you are at in your education</small>
                 </div>
                 <div className="form-group">
-                    <input type="text" placeholder="Company" name="company" value={company} onChange={e => onChange(e)}/>
-                    <small className="form-text">Could be your own company or one you work for</small>
+                    <input type="text" placeholder="College" name="college" value={college} onChange={e => onChange(e)}/>
+                    <small className="form-text">Could be your own college or one you study at</small>
                 </div>
                 <div className="form-group">
                     <input type="text" placeholder="Website" name="website" value={website} onChange={e => onChange(e)}/>
-                    <small className="form-text">Could be your own or a company website</small>
+                    <small className="form-text">Could be your own or a college website</small>
                 </div>
                 <div className="form-group">
                     <input type="text" placeholder="Location" name="location" value={location} onChange={e => onChange(e)}/>

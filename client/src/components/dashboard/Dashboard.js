@@ -10,13 +10,15 @@ import Experience from './Experience';
 import Education from './Education';
 import { getCurrentProfile, deleteAccount } from '../../actions/profile';
 
-// https://reactjs.org/docs/hooks-effect.html // place in readme later****
 const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: { profile, loading} }) => {
+    // lifecycle
     useEffect(() => {
         getCurrentProfile();
-    }, [getCurrentProfile]);
+    }, [getCurrentProfile]); // runs once
 
     // if profile is null and still loading, load spinner
+    // or if null display create account button
+    // or if data exists load profile
     return loading && profile === null ? ( <Spinner/> ) : (
     <Fragment>
         <h1 className="large text-primary">Dashboard</h1>
@@ -24,6 +26,7 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
         <i className="fas fa-user" />Welcome { user && user.name }
         </p>
         {profile !== null ? (
+        // Our component objects to display
         <Fragment>
             <DashboardActions></DashboardActions>
             <Experience experience={profile.experience} />

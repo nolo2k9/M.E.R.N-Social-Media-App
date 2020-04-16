@@ -22,7 +22,7 @@ export const loadUser = () => async dispatch => {
         })
     
     } catch (error) {
-        //if its not successfl dispatch the auth error typr
+        //if its not successful dispatch the auth error type
         dispatch({
             type:AUTH_ERROR
         })

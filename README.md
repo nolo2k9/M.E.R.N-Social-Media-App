@@ -47,8 +47,6 @@ Instead of running npm start server/ npm start
 
 Run: npm run dev
 
-Link to concurrently information: https://www.npmjs.com/package/concurrently
-
 *** Client side dependencies ***
 ************ cd into client ********************
 axios- to make http requests accross domains 
@@ -83,6 +81,18 @@ so I will continue to operater under the assumption any loss of github commits w
 (This note serves as a record/timestamp for the issue, and a statement of responsibility for this.)
 
 ***Known Issues***
-(fix this) - There seems to be some problems with the DB identifying profiles and profile ownership, most likely originating in "auth".
-(fix this) - Edit profile button does not appear on profile view when it should. Most likely due to a syntax typo, but unsure.
-(fix this) - Github repos not being found when a https:// link being used, AND when only username specified when adding them to the profile.
+(fix this) - There seems to be some problems with the DB identifying profiles and profile ownership, the origin of this is unknown and is the biggest current issue in the app.
+
+***References for various implementations/components***
+private routing - https://www.youtube.com/watch?v=Y0-qdp-XBJg
+Link to concurrently information: https://www.npmjs.com/package/concurrently
+useEffect hook - https://reactjs.org/docs/hooks-effect.html
+Fragments - https://reactjs.org/docs/fragments.html
+Destructuring - https://www.youtube.com/watch?v=5_PdMS9CLLI
+              - This allows us to unpack values from arrays or properties from objects into distinc objects.
+              - improves our codes readability
+connect - https://react-redux.js.org/api/connect
+        - mapStateToProps - https://react-redux.js.org/using-react-redux/connect-mapstate
+PropTypes - https://reactjs.org/docs/typechecking-with-proptypes.html
+History - https://scotch.io/courses/using-react-router-4/using-history
+withRouter - https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/withRouter.md

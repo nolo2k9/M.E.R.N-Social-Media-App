@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import { createProfile } from '../../actions/profile';
 
 const CreateProfile = ({createProfile, history}) => {
+    // empty/ default form data will be filled by user
     const [formData, setFormData] = useState({
-        company: '',
+        college: '',
         website: '',
         location: '',
         status: '',
@@ -24,7 +25,7 @@ const CreateProfile = ({createProfile, history}) => {
     const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
     const{
-        company,
+        college,
         website,
         location,
         status,
@@ -36,11 +37,12 @@ const CreateProfile = ({createProfile, history}) => {
         linkedin,
         youtube,
         instagram
-    } = formData;
+    } = formData; // filled by this
 
-
+    // ensures the state of the form data is put in as its value
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value })
 
+    // submitting our createProfile with the forms data and history prop
     const onSubmit = e => {
         e.preventDefault();
         createProfile(formData, history);
@@ -58,25 +60,25 @@ const CreateProfile = ({createProfile, history}) => {
             <form className="form" onSubmit={e => onSubmit(e)}>
                 <div className="form-group">
                     <select name="status" value={status} onChange={e => onChange(e)}>
-                        <option value="0">* Select Professional Status</option>
-                        <option value="Developer">Developer</option>
-                        <option value="Junior Developer">Junior Developer</option>
-                        <option value="Senior Developer">Senior Developer</option>
-                        <option value="Manager">Manager</option>
-                        <option value="Student or Learning">Student or Learning</option>
-                        <option value="Instructor">Instructor</option>
-                        <option value="Intern">Intern</option>
+                        <option value="0">* Select Academic Status</option>
+                        <option value="Undergraduate">Undergraduate</option>
+                        <option value="Graduate">Graduate</option>
+                        <option value="Masters">Masters</option>
+                        <option value="PhD">PhD</option>
+                        <option value="Lecturer">Lecturer</option>
+                        <option value="Tutor">Tutor</option>
+                        <option value="Department Head">Department Head</option>
                         <option value="Other">Other</option>
                     </select>
-                    <small className="form-text">Give us an idea of where you are at in your career</small>
+                    <small className="form-text">Give us an idea of where you are at in your education</small>
                 </div>
                 <div className="form-group">
-                    <input type="text" placeholder="Company" name="company" value={company} onChange={e => onChange(e)}/>
-                    <small className="form-text">Could be your own company or one you work for</small>
+                    <input type="text" placeholder="College" name="college" value={college} onChange={e => onChange(e)}/>
+                    <small className="form-text">Could be your own college or one you study at currently</small>
                 </div>
                 <div className="form-group">
                     <input type="text" placeholder="Website" name="website" value={website} onChange={e => onChange(e)}/>
-                    <small className="form-text">Could be your own or a company website</small>
+                    <small className="form-text">Could be your own or a college website</small>
                 </div>
                 <div className="form-group">
                     <input type="text" placeholder="Location" name="location" value={location} onChange={e => onChange(e)}/>
@@ -94,6 +96,7 @@ const CreateProfile = ({createProfile, history}) => {
                     <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)}></textarea>
                     <small className="form-text">Tell us about yourself</small>
                 </div>
+
                 <div className="my-2">
                     <button onClick={() => toggleSocialInputs(!displaySocialInputs)} type="button" className="btn btn-light">Add Social Network Links</button>
                     <span>Optional</span>
@@ -134,4 +137,5 @@ CreateProfile.propTypes = {
     createProfile:PropTypes.func.isRequired
 };
 
+// withRouter allows us to pass in history without error
 export default connect(null, { createProfile })(withRouter(CreateProfile));

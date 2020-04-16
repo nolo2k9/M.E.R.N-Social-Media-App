@@ -1,3 +1,4 @@
+// Bring our profile actions
 import {
     GET_PROFILE,
     PROFILE_ERROR,
@@ -7,6 +8,8 @@ import {
     GET_REPOS
   } from '../actions/types';
   
+  // initial state
+  // our actions will fill in these initial states
   const initialState = {
     profile: null,
     profiles: [],
@@ -22,23 +25,25 @@ import {
         case GET_PROFILE:
         case UPDATE_PROFILE:
             return{
-                ...state,
-                profile: payload,
+                ...state, 
+                profile: payload, 
                 loading: false
             };
             // fill empty profile arrary with profiles from the server
         case GET_PROFILES:
             return {
-                ...state,
-                profiles: payload,
+                ...state, //current
+                profiles: payload, //includes the whole profile
                 loading: false
             }
         case PROFILE_ERROR:
             return{
                 ...state,
-                error: payload,
+                error: payload, // error status
                 loading: false   
             };
+        // case to clear profile from view
+        // emptying the state
         case CLEAR_PROFILE:
             return{
                 ...state,

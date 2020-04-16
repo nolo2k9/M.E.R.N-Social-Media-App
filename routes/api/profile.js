@@ -41,7 +41,7 @@ router.post('/', [auth, [
         }
 
         const {
-            company,
+            college,
             website,
             location,
             bio,
@@ -58,7 +58,7 @@ router.post('/', [auth, [
         // Build profile Object and check existence of data
         const profileFields = {};
         profileFields.user = req.user.id;
-        if (company) profileFields.company = company;
+        if (college) profileFields.college = college;
         if (website) profileFields.website = website;
         if (location) profileFields.location = location;
         if (bio) profileFields.bio = bio;

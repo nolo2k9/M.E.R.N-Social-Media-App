@@ -1,3 +1,4 @@
+// Component so we can declare private routes in our App.js
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -10,7 +11,8 @@ const PrivateRoute = ({
     ...rest
 }) => (
     // authentication on our props with a redirect back to login if fail
-    <Route
+    // if true -> load component
+        <Route
         {...rest} 
             render={props => 
                 !isAuthenticated && !loading ? (
