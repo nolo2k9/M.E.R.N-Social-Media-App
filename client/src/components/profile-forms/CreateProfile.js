@@ -48,11 +48,11 @@ const CreateProfile = ({createProfile, history}) => {
 
     return (
         <Fragment>
-            <h1 class="large text-primary">
+            <h1 className="large text-primary">
                 Create Your Profile
             </h1>
-            <p class="lead">
-                <i class="fas fa-user"></i> Let's get some information to make your profile stand out
+            <p className="lead">
+                <i className="fas fa-user"></i> Let's get some information to make your profile stand out
             </p>
             <small>* = required field</small>
             <form className="form" onSubmit={e => onSubmit(e)}>
@@ -92,10 +92,10 @@ const CreateProfile = ({createProfile, history}) => {
                 </div>
                 <div className="form-group">
                     <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)}></textarea>
-                    <small class="form-text">Tell us about yourself</small>
+                    <small className="form-text">Tell us about yourself</small>
                 </div>
                 <div className="my-2">
-                    <button onClick={() => toggleSocialInputs(!displaySocialInputs)} type="button" class="btn btn-light">Add Social Network Links</button>
+                    <button onClick={() => toggleSocialInputs(!displaySocialInputs)} type="button" className="btn btn-light">Add Social Network Links</button>
                     <span>Optional</span>
                 </div>
 
@@ -123,7 +123,7 @@ const CreateProfile = ({createProfile, history}) => {
                 </Fragment>}
 
                 
-                <input type="submit" className="btn btn-primary my-1" name="instagram" />
+                <input type="submit" className="btn btn-primary my-1"/>
                 <Link className="btn btn-light my-1" to="/dashboard">Go Back</Link>
             </form>
         </Fragment>

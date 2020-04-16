@@ -1,4 +1,4 @@
-// File for fetching all our dating using an 'action'
+// File for fetching all our data using an 'action'
 
 import React, { useEffect, Fragment } from 'react';
 import { Link } from 'react-router-dom';
@@ -27,10 +27,10 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
         <Fragment>
             <DashboardActions></DashboardActions>
             <Experience experience={profile.experience} />
-            <Education education={profile.education} />
+            <Education education={profile.education} /> 
 
             <div className="my-2">
-                <button className="btn btn-danger" conClick={() => deleteAccount()}>
+                <button className="btn btn-danger" onClick={() => deleteAccount()}>
                     <i className="fas fa-user-minus"></i> Delete My Account
                 </button>
             </div>

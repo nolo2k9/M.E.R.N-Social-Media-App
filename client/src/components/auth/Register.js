@@ -2,14 +2,10 @@ import React, { Fragment, useState } from 'react';
 import {Link, Redirect} from 'react-router-dom';
 //connect must be exported
 import {connect} from 'react-redux';
-//importing se alert action
+//importing set alert action
 import {setAlert} from '../../actions/alert';
 import {register} from '../../actions/auth';
 import PropTypes from 'prop-types';
-
-
-//import axios from 'axios';
-
 
 //pulling set alert and registerfrom actions/alert
 const Register = ({setAlert, register, isAuthenticated}) => {
