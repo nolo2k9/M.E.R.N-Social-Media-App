@@ -1,6 +1,9 @@
+// component to render the top user profile component formatted and with our users data
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// our data taken from profile and user
+// only shows components if they exist
 const ProfileTop = ({
   profile: {
     status,

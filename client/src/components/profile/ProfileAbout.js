@@ -1,6 +1,10 @@
+// component to render the about user profile component formatted and with our users data
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
+// our data taken from profile and user
+// Will also trim the users name
+// maps and renders skills
 const ProfileAbout = ({ profile: {
     bio,
     skills,

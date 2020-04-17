@@ -5,20 +5,19 @@ import { connect } from 'react-redux';
 import { addExperience } from '../../actions/profile';
 
 const AddExperience = ({ addExperience, history }) => {
+  // default data, to be filled by formData
   const [formData, setFormData] = useState({
     company: '',
     title: '',
     location: '',
     from: '',
     to: '',
-    current: false,
     description: ''
   });
 
-  const [toDateDisabled, toggleDisabled] = useState(false);
+  const { company, title, location, from, to, description } = formData;
 
-  const { company, title, location, from, to, current, description } = formData;
-
+  // assigning form entries and saving values
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -34,7 +33,7 @@ const AddExperience = ({ addExperience, history }) => {
         className='form'
         onSubmit={e => {
           e.preventDefault();
-          addExperience(formData, history);
+          addExperience(formData, history);//submit our method action
         }}
       >
         <div className='form-group'>
@@ -76,28 +75,12 @@ const AddExperience = ({ addExperience, history }) => {
           />
         </div>
         <div className='form-group'>
-          <p>
-            <input
-              type='checkbox'
-              name='current'
-              checked={current}
-              value={current}
-              onChange={() => {
-                setFormData({ ...formData, current: !current });
-                toggleDisabled(!toDateDisabled);
-              }}
-            />{' '}
-            Current Job
-          </p>
-        </div>
-        <div className='form-group'>
           <h4>To Date</h4>
           <input
             type='date'
             name='to'
             value={to}
             onChange={e => onChange(e)}
-            disabled={toDateDisabled ? 'disabled' : ''}
           />
         </div>
         <div className='form-group'>

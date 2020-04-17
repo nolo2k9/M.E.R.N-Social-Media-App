@@ -1,4 +1,6 @@
 // Parrot component for other profile objects
+// Is the main profile page displaying most of the users profile data
+// brings in our state and profile data into the profile
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
@@ -16,6 +18,11 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth, match })
         getProfileById(match.params.id);
     }, [getProfileById, match.params.id]);
 
+    // checks if profile is there or loading
+    // If its the current users profile, show an edit option
+    // Bring in ProfileTop and ProfileAbout components into our Fragment
+    // Then bring in Experience and Education as long as they exist ( >0 )
+    // Finally checks for a github user name and displays the github component if true
     return ( 
     <Fragment>
         {profile === null || loading ? (<Spinner /> 

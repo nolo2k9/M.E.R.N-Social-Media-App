@@ -1,3 +1,5 @@
+// Profiles page that displays all users profiles
+// Contains a ProfileItem component that is the display item for each profile
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -16,10 +18,10 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         <Spinner />
       ) : (
         <Fragment>
-          <h1 className='large text-primary'>Developers</h1>
+          <h1 className='large text-primary'>Members</h1>
           <p className='lead'>
             <i className='fab fa-connectdevelop' /> Browse and connect with
-            developers
+            other members!
           </p>
           <div className='profiles'>
             {profiles.length > 0 ? (
@@ -45,7 +47,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(
-  mapStateToProps,
-  { getProfiles }
-)(Profiles);
+export default connect(mapStateToProps, { getProfiles })(Profiles);

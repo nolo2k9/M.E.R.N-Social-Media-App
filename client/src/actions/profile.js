@@ -16,14 +16,14 @@ export const getCurrentProfile = () => async dispatch => {
     try {
 	const res = await axios.get('/api/profile/me');
     
+    //dispatch({ type: CLEAR_PROFILE });
+
     // gets put into our state
 	dispatch({
 	    type: GET_PROFILE,
 	    payload: res.data
 	});
     } catch (err) {
-
-	dispatch({ type: CLEAR_PROFILE });
  
     // our error response (status code)
 	dispatch({
@@ -55,6 +55,7 @@ export const getProfiles = () => async dispatch => {
 };
 
 // Get profile by ID
+// uses the userId from the profile to get the specified profile
 export const getProfileById = userId => async dispatch => {
     try 
     {
@@ -75,6 +76,7 @@ export const getProfileById = userId => async dispatch => {
 };
 
 // Get github repos
+// uses the username (entered github username) from the profile to get the repos of that username
 export const getGithubRepos = username => async dispatch => {
     try 
     {
@@ -138,6 +140,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
 };
 
 // Add experience
+// takes in our formData and uses history to redirect back
 export const addExperience = (formData, history) => async dispatch =>{
     try 
     {
@@ -145,14 +148,14 @@ export const addExperience = (formData, history) => async dispatch =>{
             headers: {
                 'Content-Type': 'application/json'
             }
-        }
+        };
 
         const res = await axios.put('/api/profile/experience', formData, config);
 
-        // our profile
+        // dispatch our profile
         dispatch({
             type: UPDATE_PROFILE,
-            payload: res.data
+            payload: res.data 
         });
 
         dispatch(setAlert('Experience Added', 'success'));
@@ -215,6 +218,7 @@ export const addEducation = (formData, history) => async dispatch =>{
 export const deleteExperience = id => async dispatch => {
     try 
     {
+        // hits the end point and uses id to identify it
         const res = await axios.delete(`/api/profile/experience/${id}`);
         dispatch({
             type: UPDATE_PROFILE,
@@ -236,6 +240,7 @@ export const deleteExperience = id => async dispatch => {
 export const deleteEducation = id => async dispatch => {
     try 
     {
+        // hits the end point and uses id to identify it
         const res = await axios.delete(`/api/profile/education/${id}`);
         dispatch({
             type: UPDATE_PROFILE,
@@ -255,9 +260,11 @@ export const deleteEducation = id => async dispatch => {
 
 // Delete account and profile
 // with confirmation
+// will be able to identify the account using the current auth token
 export const deleteAccount = () => async dispatch => {
     if (window.confirm('Are you sure? This can NOT be undone!')) {
       try {
+        // request
         await axios.delete('/api/profile');
   
         dispatch({ type: CLEAR_PROFILE });

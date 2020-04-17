@@ -1,3 +1,4 @@
+// File is identical in almost every way to AddExperience.js
 import React, { Fragment, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -11,11 +12,8 @@ const AddEducation = ({ addEducation, history }) => {
     fieldofstudy: '',
     from: '',
     to: '',
-    current: false,
     description: ''
   });
-
-  const [toDateDisabled, toggleDisabled] = useState(false);
 
   const {
     school,
@@ -23,7 +21,6 @@ const AddEducation = ({ addEducation, history }) => {
     fieldofstudy,
     from,
     to,
-    current,
     description
   } = formData;
 
@@ -84,28 +81,12 @@ const AddEducation = ({ addEducation, history }) => {
           />
         </div>
         <div className='form-group'>
-          <p>
-            <input
-              type='checkbox'
-              name='current'
-              checked={current}
-              value={current}
-              onChange={() => {
-                setFormData({ ...formData, current: !current });
-                toggleDisabled(!toDateDisabled);
-              }}
-            />{' '}
-            Current School
-          </p>
-        </div>
-        <div className='form-group'>
           <h4>To Date</h4>
           <input
             type='date'
             name='to'
             value={to}
             onChange={e => onChange(e)}
-            disabled={toDateDisabled ? 'disabled' : ''}
           />
         </div>
         <div className='form-group'>

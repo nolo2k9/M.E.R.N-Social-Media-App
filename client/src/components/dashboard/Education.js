@@ -1,7 +1,7 @@
+// This file is almost exactly identical to Experience.js, and i assume it requires no further explanation
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import moment from 'moment';
 import { connect } from 'react-redux';
 import { deleteEducation } from '../../actions/profile';
 
@@ -9,13 +9,13 @@ const Education = ({ education, deleteEducation }) => {
   const educations = education.map(edu => (
     <tr key={edu._id}>
       <td>{edu.school}</td>
-      <td className="hide-sm">{edu.degree}</td>
+      <td>{edu.degree}</td>
       <td>
-        <Moment format="YYYY/MM/DD">{moment.utc(edu.from)}</Moment> -{' '}
+        <Moment format="YYYY/MM/DD">{edu.from}</Moment> -{' '}
         {edu.to === null ? (
           ' Now'
         ) : (
-          <Moment format="YYYY/MM/DD">{moment.utc(edu.to)}</Moment>
+          <Moment format="YYYY/MM/DD">{edu.to}</Moment>
         )}
       </td>
       <td>
@@ -36,8 +36,8 @@ const Education = ({ education, deleteEducation }) => {
         <thead>
           <tr>
             <th>School</th>
-            <th className="hide-sm">Degree</th>
-            <th className="hide-sm">Years</th>
+            <th>Degree</th>
+            <th>Years</th>
             <th />
           </tr>
         </thead>

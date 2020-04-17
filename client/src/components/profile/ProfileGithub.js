@@ -1,3 +1,4 @@
+// The component for a users entered github username, to display the users repos in Profile.js
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -37,7 +38,8 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
                 <li className="badge badge-dark">
                   Watchers: {repo.watchers_count}
                 </li>
-                <li className="badge badge-light">Forks: {repo.forks_count}</li>
+                <li className="badge badge-light">
+                  Forks: {repo.forks_count}</li>
               </ul>
             </div>
           </div>

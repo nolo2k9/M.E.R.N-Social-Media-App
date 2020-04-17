@@ -26,7 +26,7 @@ const EditProfile = ({profile: {profile, loading}, createProfile, getCurrentProf
     useEffect(() => {
         getCurrentProfile();
 
-        // check loading or no profile objects, then fill
+        // check loading or no profile objects, then fill with our data
         setFormData({
             college: loading || !profile.college ? '' : profile.college,
             website: loading || !profile.website ? '' : profile.website,

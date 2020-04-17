@@ -76,14 +76,14 @@ So when using things like axios you dont always have to enter in the address
 When trying to make a push to github, it was being rejected.
 To solve this I (Cuan O'Conchuir) made a --force push.
 This appears to have caused our previous commits to be lost.
-I emailed Martin Kenirons (our tutor) about this issue on 06/04/2020 and no advice on how to proceed was given, 
+I emailed Martin Kenirons (our tutor) about this issue on 06/04/2020 and no reply/advice on how to proceed was given, 
 so I will continue to operater under the assumption any loss of github commits will not affect our final grade.
 (This note serves as a record/timestamp for the issue, and a statement of responsibility for this.)
 
 ***Known Issues***
-(fix this) - There seems to be some problems with the DB identifying profiles and profile ownership, the origin of this is unknown and is the biggest current issue in the app.
+The Education and Experience entries for a users profile seem to be sharing across some of the profiles. The source and fix are both unknown to us at this point in time.
 
-***References for various implementations/components***
+***References for various implementations/components/calls***
 private routing - https://www.youtube.com/watch?v=Y0-qdp-XBJg
 Link to concurrently information: https://www.npmjs.com/package/concurrently
 useEffect hook - https://reactjs.org/docs/hooks-effect.html
@@ -96,3 +96,6 @@ connect - https://react-redux.js.org/api/connect
 PropTypes - https://reactjs.org/docs/typechecking-with-proptypes.html
 History - https://scotch.io/courses/using-react-router-4/using-history
 withRouter - https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/withRouter.md
+useState hook - https://reactjs.org/docs/hooks-state.html
+moment date formatting - https://momentjs.com
+conditional rendering in react - https://reactjs.org/docs/conditional-rendering.html

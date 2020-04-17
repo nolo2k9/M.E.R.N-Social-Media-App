@@ -25,22 +25,23 @@ import {
         case GET_PROFILE:
         case UPDATE_PROFILE:
             return{
-                ...state, 
-                profile: payload, 
+                ...state, //current
+                profile: payload, //includes the whole profile
                 loading: false
             };
-            // fill empty profile arrary with profiles from the server
+        // fill empty profile array with profiles from the server
         case GET_PROFILES:
             return {
-                ...state, //current
-                profiles: payload, //includes the whole profile
+                ...state, 
+                profiles: payload, 
                 loading: false
             }
         case PROFILE_ERROR:
             return{
                 ...state,
                 error: payload, // error status
-                loading: false   
+                loading: false,
+                profile: null   
             };
         // case to clear profile from view
         // emptying the state
@@ -54,7 +55,7 @@ import {
         case GET_REPOS:
             return {
                 ...state,
-                repos: payload,
+                repos: payload, // repositories array filled
                 loading: false
             }
         default:

@@ -6,7 +6,7 @@ import PostItem from './PostItem';
 import PostForm from './PostForm';
 import {getPosts} from '../../actions/post';
 //get the getPosts, post(the posts and the loading state)
-const Posts =({getPosts,post:{posts,loading},auth: { user } }) => {
+const Posts =({ getPosts, post:{ posts, loading }, auth: { user } }) => {
     useEffect(() => {
         getPosts();
     }, 
