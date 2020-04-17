@@ -6,7 +6,7 @@ import PostItem from './PostItem';
 import PostForm from './PostForm';
 import {getPosts} from '../../actions/post';
 //get the getPosts, post(the posts and the loading state)
-const Posts =({getPosts,post:{posts,loading} }) => {
+const Posts =({getPosts,post:{posts,loading},auth: { user } }) => {
     useEffect(() => {
         getPosts();
     }, 
@@ -21,7 +21,7 @@ const Posts =({getPosts,post:{posts,loading} }) => {
         <Fragment>
           <h1 className="large text-primary">Posts</h1>
           <p className="lead">
-              <i className="fas fs-user"></i>Welcome to our community
+              <i className="fas fs-user"></i>Hi { user && user.name }!!! What's on your mind?
           </p>
         <PostForm/>
         <div className="posts">
@@ -35,11 +35,13 @@ const Posts =({getPosts,post:{posts,loading} }) => {
 
 Posts.prototypes = {
   getPosts:PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
   post: PropTypes.object.isRequired
 
 }
 //getting state
 const mapStateToProps = state => ({
-    post: state.post
+    post: state.post,
+    auth: state.auth
 });
 export default connect(mapStateToProps,{getPosts})(Posts);
