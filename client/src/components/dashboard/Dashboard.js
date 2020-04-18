@@ -1,5 +1,4 @@
 // File for fetching all our data using an 'action'
-
 import React, { useEffect, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -8,6 +7,11 @@ import Spinner from '../layout/Spinner';
 import DashboardActions from './DashboardActions';
 import Experience from './Experience';
 import Education from './Education';
+import ProfileTop from '../profile/ProfileTop';
+import ProfileAbout from '../profile/ProfileAbout';
+import ProfileExperience from '../profile/ProfileExperience';
+import ProfileEducation from '../profile/ProfileEducation';
+import ProfileGithub from '../profile/ProfileGithub';
 import { getCurrentProfile, deleteAccount } from '../../actions/profile';
 
 const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: { profile, loading} }) => {
@@ -27,8 +31,35 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
         </p>
         {profile !== null ? (
         // Our component objects to display
+        // bring in Dashboard actions and place at top of profile
+        // Bring in ProfileTop and ProfileAbout components into our Fragment
+        // Then bring in Experience and Education as long as they exist ( >0 )
+        // Finally checks for a github user name and displays the github component if true
         <Fragment>
             <DashboardActions></DashboardActions>
+            <div className="profile-grid my-1">
+                <ProfileTop profile={profile} />
+                <ProfileAbout profile={profile} />
+                <div className="profile-exp bg-white p-2">
+                    <h2 className="text-primary">Experience</h2>
+                    {profile.experience.length > 0 ? (<Fragment>
+                        {profile.experience.map(experience => (
+                            <ProfileExperience key={experience._id} experience={experience}></ProfileExperience>
+                        ))}
+                    </Fragment>) : (<h4>No Experience credentials</h4>)}
+                </div>
+                <div className="profile-edu bg-white p-2">
+                    <h2 className="text-primary">Education</h2>
+                    {profile.education.length > 0 ? (<Fragment>
+                        {profile.education.map(education => (
+                            <ProfileEducation key={education._id} education={education}></ProfileEducation>
+                        ))}
+                    </Fragment>) : (<h4>No Education credentials</h4>)}
+                </div>
+                {profile.githubusername && (
+                    <ProfileGithub username={profile.githubusername}/>
+                )}
+            </div>
             <Experience experience={profile.experience} />
             <Education education={profile.education} /> 
 
