@@ -7,6 +7,8 @@ import Spinner from '../layout/Spinner';
 import ProfileItem from './ProfileItem';
 import { getProfiles } from '../../actions/profile';
 
+// useEffect to lifecycle our profiles
+// check loading -> spinner or return our ProfileItems
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
     getProfiles();
@@ -20,8 +22,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         <Fragment>
           <h1 className='large text-primary'>Members</h1>
           <p className='lead'>
-           <ul>Browse and connect with
-            other members!</ul> 
+            <i>Browse and connect with other members!</i>
           </p>
           <div className='profiles'>
             {profiles.length > 0 ? (
