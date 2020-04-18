@@ -60,8 +60,7 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
                     <ProfileGithub username={profile.githubusername}/>
                 )}
             </div>
-            <Experience experience={profile.experience} />
-            <Education education={profile.education} /> 
+          
 
             <div className="my-2">
                 <button className="btn btn-danger" onClick={() => deleteAccount()}>
@@ -76,6 +75,7 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
             <Link to='/create-profile' className="btn btn-primary my-1">
                 Create Profile
             </Link>
+            <small>If page is unresponsive please reload! </small>
         </Fragment>
         )}
     </Fragment>
