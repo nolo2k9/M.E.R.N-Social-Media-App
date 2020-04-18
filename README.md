@@ -1,3 +1,6 @@
+**Tip**
+If a feature of this website appears to not be working reload the page. Sometimes the server doesn't react straight away and load all of the data upon loading a page.
+
 **Technologies**
 
 - NODE.js

@@ -32,7 +32,7 @@ const Posts =({ getPosts, post:{ posts, loading }, auth: { user } }) => {
         </Fragment>
     );
 };
-
+//setting up proptypes for Posts
 Posts.prototypes = {
   getPosts:PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,

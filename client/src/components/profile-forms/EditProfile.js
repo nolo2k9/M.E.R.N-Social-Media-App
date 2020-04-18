@@ -109,7 +109,7 @@ const EditProfile = ({profile: {profile, loading}, createProfile, getCurrentProf
                 </div>
                 <div className="form-group">
                     <input type="text" placeholder="Github Username" name="githubusername" value={githubusername} onChange={e => onChange(e)}/>
-                    <small className="form-text">Connect your github</small>
+                    <small className="form-text">Connect your github. Just paste in the link of your github repositories</small>
                 </div>
                 <div className="form-group">
                     <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)}></textarea>

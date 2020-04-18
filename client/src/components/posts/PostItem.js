@@ -63,6 +63,7 @@ Actions
 PostItem.defaultProps = {
   Actions: true
 }
+//setting up proptypes for PostItem
 PostItem.propTypes = {
     post: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
