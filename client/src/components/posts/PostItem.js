@@ -57,7 +57,9 @@ Actions
               </Fragment>}
            
           </div>
+          
        </div>
+       
     )
 }
 PostItem.defaultProps = {

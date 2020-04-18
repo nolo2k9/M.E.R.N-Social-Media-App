@@ -23,6 +23,7 @@ const Posts =({ getPosts, post:{ posts, loading }, auth: { user } }) => {
           <p className="lead">
               <i className="fas fs-user"></i>Hi { user && user.name }!!! What's on your mind?
           </p>
+          <small>If no posts are showing please reload page! </small>
         <PostForm/>
         <div className="posts">
             {posts.map(post => (
@@ -30,7 +31,10 @@ const Posts =({ getPosts, post:{ posts, loading }, auth: { user } }) => {
             ))}
         </div>
         </Fragment>
+        
+        
     );
+    
 };
 //setting up proptypes for Posts
 Posts.prototypes = {

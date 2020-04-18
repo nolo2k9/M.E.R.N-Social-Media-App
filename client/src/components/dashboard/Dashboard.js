@@ -37,6 +37,7 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
                     <i className="fas fa-user-minus"></i> Delete My Account
                 </button>
             </div>
+            <small>If page is unresponsive please reload! </small>
         </Fragment>
         ) : (
         <Fragment>

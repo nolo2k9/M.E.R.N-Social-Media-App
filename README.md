@@ -1,6 +1,6 @@
 **Tip**
 If a feature of this website appears to not be working reload the page. Sometimes the server doesn't react straight away and load all of the data upon loading a page.
-
+For example when you load the dashboard for the first time it wont show your logged in user name or you go to the create profile page it wont take in your information befroe you reload the page. The post page can be the same 
 **Technologies**
 
 - NODE.js

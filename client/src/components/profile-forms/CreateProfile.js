@@ -54,9 +54,9 @@ const CreateProfile = ({createProfile, history}) => {
                 Create Your Profile
             </h1>
             <p className="lead">
-                <i className="fas fa-user"></i> Let's get some information to make your profile stand out
+                <i className="fas fa-user"></i> Let's get some information to make your profile about you
             </p>
-            <small>* = required field</small>
+            <small>Required fields are marked with a *</small>
             <form className="form" onSubmit={e => onSubmit(e)}>
                 <div className="form-group">
                     <select name="status" value={status} onChange={e => onChange(e)}>
@@ -129,6 +129,7 @@ const CreateProfile = ({createProfile, history}) => {
                 <input type="submit" className="btn btn-primary my-1"/>
                 <Link className="btn btn-light my-1" to="/dashboard">Go Back</Link>
             </form>
+            <small>If page is unresponsive please reload! </small>
         </Fragment>
     )
 }
