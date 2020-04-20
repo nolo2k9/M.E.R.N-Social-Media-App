@@ -37,6 +37,7 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
         // Finally checks for a github user name and displays the github component if true
         <Fragment>
             <DashboardActions></DashboardActions>
+
             <div className="profile-grid my-1">
                 <ProfileTop profile={profile} />
                 <ProfileAbout profile={profile} />
@@ -48,6 +49,7 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
                         ))}
                     </Fragment>) : (<h4>No Experience credentials</h4>)}
                 </div>
+                
                 <div className="profile-edu bg-white p-2">
                     <h2 className="text-primary">Education</h2>
                     {profile.education.length > 0 ? (<Fragment>
@@ -60,8 +62,10 @@ const Dashboard = ({ getCurrentProfile, deleteAccount, auth: { user }, profile: 
                     <ProfileGithub username={profile.githubusername}/>
                 )}
             </div>
-          
 
+            <Experience experience={profile.experience} />
+            <Education education={profile.education} /> 
+          
             <div className="my-2">
                 <button className="btn btn-danger" onClick={() => deleteAccount()}>
                     <i className="fas fa-user-minus"></i> Delete My Account
